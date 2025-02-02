@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     openssl \
-    libssl-dev
+    libssl-dev \
     build-essential \
     pkg-config \
     libxml2-dev \
