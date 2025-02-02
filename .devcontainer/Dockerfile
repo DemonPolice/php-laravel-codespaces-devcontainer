@@ -3,8 +3,11 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
+    pkg-config \
+    libxml2-dev \
     libzip-dev \
     libicu-dev \
+    libonig-dev \
     unzip \
     curl \
     git \
