@@ -2,6 +2,8 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
+    openssl \
+    libssl-dev
     build-essential \
     pkg-config \
     libxml2-dev \
@@ -19,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /usr/src/php
 RUN curl -fsSL https://www.php.net/distributions/php-8.2.13.tar.gz | tar xvz \
     && cd php-8.2.13 \
-    && ./configure --enable-mbstring --enable-intl --with-zip \
+    && ./configure --enable-mbstring --enable-intl --with-zip --with-openssl \
     && make -j$(nproc) \
     && make install \
     && cd .. \
